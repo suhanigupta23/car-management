@@ -48,6 +48,8 @@ public class CarService {
     }
 
     public List<Car> searchCars(String query) {
-        return carRepository.findAll();  // Implement global search logic here
+        return carRepository.findByCarNameContainingIgnoreCaseOrModelContainingIgnoreCaseOrColorContainingIgnoreCaseOrFuelTypeContainingIgnoreCase(
+                query, query, query, query
+        ); // Implement global search logic here
     }
 }
