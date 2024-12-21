@@ -21,16 +21,15 @@ public class CarController {
         return carService.addCar(car);
     }
 
-    // Get all cars (with pagination and sorting)
-    @GetMapping
-    public Page<Car> getCars(@RequestParam(defaultValue = "0") int page,
-                             @RequestParam(defaultValue = "10") int size,
-                             @RequestParam(defaultValue = "carName") String sortBy) {
-        return carService.getCarsPaginated(page, size, sortBy);
+    // Get all cars with pagination
+    @GetMapping("/pagination")
+    public Page<Car> getCarsWithPaginationAndSorting(@RequestParam int page, @RequestParam int size) {
+        return carService.getCarsWithPagination(page, size);
     }
 
-    // Get car by ID
-    @GetMapping("/{id}")
+
+    // Get car by ID (restricted to numeric IDs)
+    @GetMapping("/{id:[0-9]+}")
     public Car getCarById(@PathVariable Long id) {
         return carService.getCarById(id);
     }

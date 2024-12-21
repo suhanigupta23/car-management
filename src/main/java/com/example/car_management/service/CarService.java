@@ -5,6 +5,7 @@ import com.example.car_management.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -25,11 +26,13 @@ public class CarService {
     }
 
     public Car getCarById(Long id) {
-        return carRepository.findById(id).orElse(null);
+        return carRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Car not found with ID: " + id));
     }
 
     public Car updateCar(Long id, Car carDetails) {
-        Car car = carRepository.findById(id).orElseThrow();
+        Car car = carRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Car not found with ID: " + id));
         car.setCarName(carDetails.getCarName());
         car.setModel(carDetails.getModel());
         car.setYear(carDetails.getYear());
@@ -40,16 +43,26 @@ public class CarService {
     }
 
     public void deleteCar(Long id) {
+        if (!carRepository.existsById(id)) {
+            throw new RuntimeException("Car not found with ID: " + id);
+        }
         carRepository.deleteById(id);
     }
 
-    public Page<Car> getCarsPaginated(int page, int size, String sortBy) {
-        return carRepository.findAll(PageRequest.of(page, size, Sort.by(sortBy)));
+    public Page<Car> getCarsWithPaginationAndSorting(int page, int size, String sortBy, String sortDir) {
+        Sort sort = sortDir.equalsIgnoreCase("desc") ? Sort.by(sortBy).descending() : Sort.by(sortBy).ascending();
+        Pageable pageable = PageRequest.of(page, size, sort);
+        return carRepository.findAll(pageable);
+    }
+
+    public Page<Car> getCarsWithPagination(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return carRepository.findAll(pageable);
     }
 
     public List<Car> searchCars(String query) {
         return carRepository.findByCarNameContainingIgnoreCaseOrModelContainingIgnoreCaseOrColorContainingIgnoreCaseOrFuelTypeContainingIgnoreCase(
                 query, query, query, query
-        ); // Implement global search logic here
+        );
     }
 }
