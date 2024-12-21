@@ -29,6 +29,7 @@ public class Car {
     private double price;
 
     private String color;
+
     private String fuelType;
 
     // Getters and Setters

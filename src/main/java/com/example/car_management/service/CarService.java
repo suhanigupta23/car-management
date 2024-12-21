@@ -11,7 +11,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
 @Service
 public class CarService {
 
@@ -25,28 +24,33 @@ public class CarService {
 
     // Search cars by name, model, or year
     public List<Car> searchCars(String name, String model, Integer year) {
-        if (name != null && model != null && year != null) {
-            return carRepository.findByNameContainingAndModelContainingAndYear(name, model, year);
-        }
-        if (name != null && model != null) {
-            return carRepository.findByNameContainingAndModelContaining(name, model);
-        }
-        if (name != null) {
-            return carRepository.findByNameContaining(name);
-        }
-        if (model != null) {
-            return carRepository.findByModelContaining(model);
-        }
-        if (year != null) {
-            return carRepository.findByYear(year);
-        }
-        return carRepository.findAll(); // If no filters, return all cars
+        return carRepository.searchCars(
+            name != null ? name : "",
+            model != null ? model : "",
+            year
+        );
     }
-
+    
     // Handle pagination and sorting
     public Page<Car> getAllCars(int page, int size, String[] sort) {
-        Sort.Order sortOrder = sort[1].equalsIgnoreCase("asc") ? Sort.Order.asc(sort[0]) : Sort.Order.desc(sort[0]);
-        Pageable pageable = PageRequest.of(page, size, Sort.by(sortOrder));
+        if (page < 0 || size <= 0) {
+            throw new IllegalArgumentException("Page index must be >= 0 and size > 0");
+        }
+        
+        // Default sorting fallback if 'sort' is not provided
+        if (sort == null || sort.length == 0) {
+            sort = new String[]{"id", "asc"}; // Default to sort by 'id' ascending
+        }
+    
+        // Handle sorting logic
+        Sort sortOrder = Sort.by(
+            sort.length > 1 && sort[1].equalsIgnoreCase("desc")
+                ? Sort.Order.desc(sort[0])
+                : Sort.Order.asc(sort[0])
+        );
+    
+        Pageable pageable = PageRequest.of(page, size, sortOrder);
         return carRepository.findAll(pageable);
     }
+      
 }
