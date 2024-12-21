@@ -1,31 +1,26 @@
-package com.example.car_management.entity;
+package com.example.car_management.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Car {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generate the ID
     private Long id;
 
-    @NotBlank(message = "Car name is required")
-    private String name;
+    @NotNull
+    private String carName;
 
-    @NotBlank(message = "Car model is required")
+    @NotNull
     private String model;
 
-    @Min(value = 1900, message = "Year must be greater than or equal to 1900")
     private int year;
 
-    @NotNull(message = "Price is required")
-    @Min(value = 0, message = "Price must be greater than or equal to 0")
     private double price;
 
     private String color;
@@ -41,12 +36,12 @@ public class Car {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getCarName() {
+        return carName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCarName(String carName) {
+        this.carName = carName;
     }
 
     public String getModel() {
