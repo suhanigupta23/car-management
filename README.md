@@ -91,6 +91,7 @@ The project consists of a Spring Boot backend with the following key features:
   4. Run the Application: 
     - `./mvnw spring-boot:run`
 
-- **Hosted API URL**
+## Hosted API URL
    The live API is hosted on Render. Test the API using the following URL:
+   
   https://car-management-m336.onrender.com
