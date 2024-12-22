@@ -63,22 +63,22 @@ The project consists of a Spring Boot backend with the following key features:
 
  ### Setup Instructions
  - **Prerequisites**
- - `Java 17`
- - `Spring Boot`
- - `Maven for dependencies`
- - `MySQL Database`
- - `Postman for API testing`
+   `Java 17`
+   `Spring Boot`
+   `Maven for dependencies`
+   `MySQL Database`
+   `Postman for API testing`
 
  - **Running the Project Locally**
  1. Clone the repository
-  ```json git clone https://github.com/suhanigupta23/car-management
-  cd car-management
+   git clone https://github.com/suhanigupta23/car-management
+   cd car-management
 
  2. Install dependencies and build the project:
-  ```json ./mvnw clean install
+    ./mvnw clean install
 
  3. Configure the database in src/main/resources/application.properties (if using MySQL):
-  ```json spring.datasource.url=jdbc:mysql://localhost:3306/car_management
+   spring.datasource.url=jdbc:mysql://localhost:3306/car_management
   spring.datasource.username=root
   spring.datasource.password=password
   spring.jpa.hibernate.ddl-auto=update
