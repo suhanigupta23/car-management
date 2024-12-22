@@ -29,13 +29,13 @@ The project consists of a Spring Boot backend with the following key features:
 ### 2. Get All Cars(with pagination)
 - **Endpoint**: `GET /api/cars/pagination?page=0&size=10`
 - **Parameters:**
-- `page`: The page number (starts from 0).
-- `size`: The number of cars per page (default is 10). 
+  `page`: The page number (starts from 0).
+  `size`: The number of cars per page (default is 10). 
 
 ### 3. Get Car By Id
 - **Endpoint**: `GET /api/cars/{id}`
 - **Path Variable:**
-- `id`: The ID of the car to retrieve.
+  `id`: The ID of the car to retrieve.
 
 ### 4. Update a Car
 - **Endpoint**: `PUT /api/cars/{id}`
@@ -53,32 +53,39 @@ The project consists of a Spring Boot backend with the following key features:
 ### 5. Delete A Car
 - **Endpoint**: `DELETE /api/cars/{id}`
 - **Path Variable:**
-- `id`: The ID of the car to delete.
+  `id`: The ID of the car to delete.
 
 ### 6. Global Search
 - **Endpoint**: `GET /api/cars/search?query=Toyota`
 - **Query Parameter:**
- - `query`: Search term to match against car name, model, color, or fuel type.
+  `query`: Search term to match against car name, model, color, or fuel type.
 
 
  ### Setup Instructions
  - **Prerequisites**
-   `Java 17`
-   `Spring Boot`
-   `Maven for dependencies`
-   `MySQL Database`
-   `Postman for API testing`
+   - Java 17
+   - Spring Boot
+   - Maven for dependencies
+   - MySQL Database
+   - Postman for API testing
 
  - **Running the Project Locally**
  1. Clone the repository
-   git clone https://github.com/suhanigupta23/car-management
-   cd car-management
+   git clone:
+    https://github.com/suhanigupta23/car-management
 
- 2. Install dependencies and build the project:
-    ./mvnw clean install
+    cd car-management
 
- 3. Configure the database in src/main/resources/application.properties (if using MySQL):
-   spring.datasource.url=jdbc:mysql://localhost:3306/car_management
-  spring.datasource.username=root
-  spring.datasource.password=password
-  spring.jpa.hibernate.ddl-auto=update
+  2. Configure the database in src/main/resources/application.properties (if using MySQL):
+   - `spring.datasource.url=jdbc:mysql://localhost:3306/car_management`
+   - `spring.datasource.username=root`
+   - `spring.datasource.password=password`
+   - `spring.jpa.hibernate.ddl-auto=update`
+
+  3. Install dependencies and build the project:
+    - `./mvnw clean install`
+  
+  4. Run the Application: 
+    - `./mvnw spring-boot:run`
+
+    
