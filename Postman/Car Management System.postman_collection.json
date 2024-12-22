@@ -24,7 +24,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/cars/3",
+							"raw": "https://car-management-m336.onrender.com/api/cars/3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -54,7 +54,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/cars",
+							"raw": "https://car-management-m336.onrender.com/api/cars",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -86,7 +86,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/cars",
+							"raw": "https://car-management-m336.onrender.com/api/cars",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -118,7 +118,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/cars",
+							"raw": "https://car-management-m336.onrender.com/api/cars",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -147,7 +147,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/cars/6",
+							"raw": "https://car-management-m336.onrender.com/api/cars/6",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -173,7 +173,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/cars/pagination?page=1&size=2",
+							"raw": "https://car-management-m336.onrender.com/api/cars/pagination?page=1&size=2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -209,7 +209,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/cars/search?query=Toyota",
+							"raw": "https://car-management-m336.onrender.com/api/cars/search?query=Toyota",
 							"protocol": "http",
 							"host": [
 								"localhost"
