@@ -61,7 +61,7 @@ The project consists of a Spring Boot backend with the following key features:
   `query`: Search term to match against car name, model, color, or fuel type.
 
 
- ### Setup Instructions
+ ## Setup Instructions
  - **Prerequisites**
    - Java 17
    - Spring Boot
