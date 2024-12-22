@@ -77,10 +77,13 @@ The project consists of a Spring Boot backend with the following key features:
     cd car-management
 
   2. Configure the database in src/main/resources/application.properties (if using MySQL):
-   - `spring.datasource.url=jdbc:mysql://localhost:3306/car_management`
-   - `spring.datasource.username=root`
-   - `spring.datasource.password=password`
-   - `spring.jpa.hibernate.ddl-auto=update`
+   - spring.datasource.url=jdbc:mysql://mysql-suhanigupta2304-e8d9.l.aivencloud.com:10594/defaultdb?ssl-mode=REQUIRED
+    - `spring.datasource.username=avnadmin`
+    spring.datasource.password=AVNS_e9-PhQ7HWZz72UMAtyi
+    -`spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver`
+    -`spring.jpa.hibernate.ddl-auto=update`
+    -`spring.jpa.show-sql=true`
+    -`spring.jpa.properties.hibernate.format_sql=true`
 
   3. Install dependencies and build the project:
     - `./mvnw clean install`
@@ -88,4 +91,3 @@ The project consists of a Spring Boot backend with the following key features:
   4. Run the Application: 
     - `./mvnw spring-boot:run`
 
-    
