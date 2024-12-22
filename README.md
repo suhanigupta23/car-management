@@ -79,7 +79,7 @@ The project consists of a Spring Boot backend with the following key features:
   2. Configure the database in src/main/resources/application.properties (if using MySQL):
    - spring.datasource.url=jdbc:mysql://mysql-suhanigupta2304-e8d9.l.aivencloud.com:10594/defaultdb?ssl-mode=REQUIRED
     - `spring.datasource.username=avnadmin`
-    spring.datasource.password=AVNS_e9-PhQ7HWZz72UMAtyi
+    -`spring.datasource.password=AVNS_e9-PhQ7HWZz72UMAtyi`
     -`spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver`
     -`spring.jpa.hibernate.ddl-auto=update`
     -`spring.jpa.show-sql=true`
